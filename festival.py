@@ -6,7 +6,7 @@ def registrar_banda():
     genero = input("Género musical: ")
     hora_presentacion = input("Hora de presentación (H:M:S): ")
     pago = float(input("Pago a la banda: "))
-    estado = False  # Inicialmente, la banda no se ha presentado
+    estado = input("¿Ya se presentó? (Sí/No): ").lower() == "sí"
     banda = {
         "id": id_banda,
         "nombre": nombre,
@@ -19,10 +19,16 @@ def registrar_banda():
     print(f"Banda {nombre} registrada con éxito.")
 
 
-def mostrar_bandas_no_presentadas():
-    print("Bandas que no se han presentado:")
+def mostrar_bandas_no_presentada () :
+    print("Bandas que no se han presentado: , ")
     for banda in bandas:
         if not banda["estado"]:
+            print(f"{banda['id']}: {banda['nombre']} - {banda['genero']} - {banda['hora_presentacion']}")
+
+ def mostrar_bandas_presentadas():
+    print("Bandas que ya se presentaron:")
+    for banda in bandas:
+        if banda["estado"]:
             print(f"{banda['id']}: {banda['nombre']} - {banda['genero']} - {banda['hora_presentacion']}")
 
 
